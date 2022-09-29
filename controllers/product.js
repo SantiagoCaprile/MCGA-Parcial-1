@@ -22,3 +22,15 @@ exports.addProduct = (req, res) => {
         }
     });
 }
+
+exports.getProductById = (req, res) => {
+    Product.find({ id: req.params.id }, (err, product) => {
+        if (err) {
+            res.status(500).send(err);
+        } else if (!product.length) {
+            res.status(404).send('No product found');
+        } else {
+            res.status(200).json(product);
+        }
+    });
+}
