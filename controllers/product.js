@@ -34,3 +34,15 @@ exports.getProductById = (req, res) => {
         }
     });
 }
+
+exports.deleteProductById = (req, res) => {
+    Product.deleteOne({ id: req.params.id }, (err, product) => {
+        if (err) {
+            res.status(500).send(err);
+        } else if (product.deletedCount === 0) {
+            res.status(404).send('No product found');
+        } else {
+            res.status(200).send('Product deleted');
+        }
+    });
+}
