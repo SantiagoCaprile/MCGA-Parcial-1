@@ -16,3 +16,7 @@ app.use(express.json());
 app.listen(3000, () => {
     console.log(`Server Started at ${3000}`)
 })
+
+app.use('/ping', (req, res) => {
+    res.send('server OK');
+});
