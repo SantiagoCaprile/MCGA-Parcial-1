@@ -20,3 +20,5 @@ app.listen(3000, () => {
 app.use('/ping', (req, res) => {
     res.send('server OK');
 });
+
+app.use('/products', require('./routes/product'));
