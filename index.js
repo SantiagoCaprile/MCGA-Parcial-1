@@ -17,5 +17,5 @@ app.listen(3000, () => {
     console.log(`Server Started at ${3000}`)
 })
 
-app.use('/ping' , require('./routes'));
-app.use('/products', require('./routes/product'));
+app.use('/ping' , require('./src/routes'));
+app.use('/products', require('./src/routes/product'));

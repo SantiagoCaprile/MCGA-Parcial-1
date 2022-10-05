@@ -51,7 +51,7 @@ exports.updateProductById = (req, res) => {
     Product.updateOne({ id: req.params.id }, req.body, (err, product) => {
         if (err) {
             res.status(500).send(err);
-        } else if (product.modifiedCount === 0) {
+        } else if (product.matchedCount === 0) {
             res.status(404).send('No product found');
         } else {
             res.status(200).send('Product updated');
